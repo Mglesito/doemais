@@ -1,0 +1,468 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+  }
+  
+  body {
+    background: #0b1d14;
+    color: #e0ffe0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Card / tela */
+  .tela {
+    width: 90%;
+    max-width: 350px;
+    background: linear-gradient(160deg, #1a3d2e, #0b1d14);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,255,100,0.3);
+  }
+  
+  /* Botão */
+  .btn {
+    margin-top: 15px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+    background: #00d26a;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+  }
+  .btn:hover {
+    background: #00ff88;
+    transform: scale(1.05);
+  }
+  
+  /* Inputs */
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #123322;
+    color: #e0ffe0;
+  }
+  
+  /* Títulos */
+  h1, h2 {
+    margin-bottom: 15px;
+    color: #aaffcc;
+  }
+  
+  p {
+    margin-top: 10px;
+    color: #9effa9;
+  }
+  
+  /* XP / pontos */
+  .xp {
+    background: #004422;
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: #00ff88;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px 0;
+  }
+  
+  /* Caixa destaque */
+  .caixa {
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 15px;
+    background: #123322;
+    font-size: 1.1em;
+    color: #00ff88;
+  }
+  /* Container lado a lado */
+.container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* permite quebrar em telas menores */
+    justify-content: center;
+  }
+  
+  .container .tela {
+    flex: 1;
+    min-width: 280px; /* para não ficar espremido no mobile */
+  }
+  /* Caixa de nível */
+.nivel-box {
+    flex-basis: 100%; /* ocupa largura inteira no topo */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .nivel-box h2 {
+    color: #00ff88;
+    margin-bottom: 5px;
+  }
+  
+  .barra-xp {
+    width: 100%;
+    height: 12px;
+    background: #123322;
+    border-radius: 8px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  
+  .progresso {
+    height: 100%;
+    background: #00d26a;
+    border-radius: 8px;
+  }
+  /* Pontos */
+.pontos {
+    margin: 5px 0 10px;
+    font-size: 1em;
+    color: #aaffcc;
+    font-weight: bold;
+  }
+  .pontos span {
+    color: #00ff88;
+  }
+  /* Árvore */
+.arvore-box {
+    text-align: center;
+  }
+  
+  .descricao {
+    font-size: 0.9em;
+    color: #9effa9;
+    margin-bottom: 15px;
+  }
+  
+  .arvore {
+    margin: 20px auto;
+    font-size: 1.5em;
+    line-height: 1.8;
+  }
+  
+  .tronco {
+    font-size: 2em;
+    color: #5c3d2e;
+  }
+  
+  .copa {
+    color: #00ff88;
+    font-size: 1.2em;
+  }
+  
+  /* Lista de doações */
+  .lista-doacoes {
+    list-style: none;
+    margin: 15px 0;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .lista-doacoes li {
+    background: #123322;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .lista-doacoes span {
+    color: #00ff88;
+    font-weight: bold;
+  }
+  
+  /* Resumo */
+  .resumo {
+    margin: 15px 0;
+    font-size: 1.1em;
+    text-align: center;
+    background: #0f2a1c;
+  }
+  /* Árvore estilizada */
+.arvore {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    margin: 20px auto;
+  }
+  
+  /* Tronco */
+  .tronco {
+    width: 50px;
+    height: 120px;
+    background: #5c3d2e;
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    border-radius: 10px;
+  }
+  
+  /* Copa da árvore */
+  .copa {
+    width: 220px;
+    height: 180px;
+    background: #0b5e2a;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+  }
+  
+  /* Folhas de doação */
+  .folha {
+    width: 20px;
+    height: 20px;
+    background: #00ff88;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 5px #00ff88;
+    animation: balanco 3s infinite ease-in-out;
+  }
+  
+  /* Animação leve nas folhas */
+  @keyframes balanco {
+    0% { transform: rotate(0deg) translateX(0); }
+    50% { transform: rotate(10deg) translateX(3px); }
+    100% { transform: rotate(0deg) translateX(0); }
+  }
+  /* Árvore estilizada tipo emoji */
+.arvore {
+    position: relative;
+    width: 250px;
+    height: 320px;
+    margin: 20px auto;
+  }
+  
+  /* Tronco arredondado */
+  .tronco {
+    width: 50px;
+    height: 120px;
+    background: #6b4226;
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    border-radius: 20px;
+    box-shadow: inset -5px 0 10px rgba(0,0,0,0.3);
+  }
+  
+  /* Copa feita de bolinhas */
+  .copa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 200px;
+  }
+  
+  .bola {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #2ecc71, #145a32);
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.4);
+  }
+  
+  /* Várias bolinhas sobrepostas */
+  .bola1 { top: 20px; left: 60px; }
+  .bola2 { top: 40px; left: 20px; }
+  .bola3 { top: 40px; left: 120px; }
+  .bola4 { top: -10px; left: 90px; }
+  .bola5 { top: 70px; left: 70px; }
+  .bola6 { top: 60px; left: 160px; }
+  
+  /* Folhas de doação (diferenciadas) */
+  .folha {
+    width: 20px;
+    height: 20px;
+    background: #00ff88;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 5px #00ff88;
+    animation: balanco 3s infinite ease-in-out;
+  }
+  
+  /* Animação das folhas */
+  @keyframes balanco {
+    0% { transform: rotate(0deg) translateX(0); }
+    50% { transform: rotate(10deg) translateX(3px); }
+    100% { transform: rotate(0deg) translateX(0); }
+  }
+  /* Container da árvore */
+.arvore {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+  }
+  
+  /* Imagem base da árvore */
+  .arvore-base {
+    width: 80%;
+    display: block;
+  }
+  
+  /* Folhas extras de doação */
+  .folha {
+    width: 22px;
+    height: 22px;
+    background: #00ff88;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 6px #00ff88;
+    animation: balanco 3s infinite ease-in-out;
+  }
+  
+  /* Animação suave */
+  @keyframes balanco {
+    0% { transform: rotate(0deg) translateX(0); }
+    50% { transform: rotate(8deg) translateX(3px); }
+    100% { transform: rotate(0deg) translateX(0); }
+  }
+.logo {
+    text-align: center;
+    margin: 10px auto 25px auto;
+    display: block;
+  }
+  
+  .logo-img {
+    max-width: 130px;
+    height: auto;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px #008844);
+    opacity: 1.0;
+  }
+  
+  /* Deixar os blocos menores */
+  .tela {
+    max-width: 280px;   /* antes era 350px */
+    padding: 18px;      /* antes era 25px */
+    border-radius: 15px;
+    font-size: 0.9em;   /* texto um pouco menor */
+  }
+  /* Ranking Equipe */
+    .titulo-equipe {
+    font-size: 1.6em;
+    color: #00ff88;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px #00ff88;
+  }
+  
+  .ranking-lista {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .ranking-lista li {
+    background: #123322;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #aaffcc;
+    box-shadow: 0 0 10px rgba(0,255,100,0.2);
+    transition: transform 0.2s, background 0.2s;
+  }
+  
+  .ranking-lista li:hover {
+    transform: scale(1.05);
+    background: #145a32;
+  }
+  
+  .posicao {
+    color: #00ff88;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  /* Centralizar árvore */
+.arvore-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .arvore {
+    margin: 0 auto;   /* força centralização */
+    display: block;
+  }
+  /* Logo abaixo da missão */
+.logo {
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  .logo-img {
+    max-width: 140px;
+    height: auto;
+    display: inline-block;
+    filter: drop-shadow(0 0 5px #ffffff);
+    opacity: 1.0;
+  }
+  /* Página Doações */
+.titulo-doacao {
+    font-size: 1.6em;
+    color: #00ff88;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px #00ff88;
+  }
+  
+  .descricao {
+    font-size: 0.95em;
+    color: #ccffdd;
+    margin-bottom: 15px;
+    line-height: 1.4em;
+  }
+  
+  .lista-doacoes {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .lista-doacoes li {
+    background: #123322;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #aaffcc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 8px rgba(0,255,100,0.2);
+  }
+  
+  .lista-doacoes li span {
+    color: #00ff88;
+    font-weight: bold;
+  }
+  
+  .destaque-doacao {
+    font-size: 1em;
+    font-weight: bold;
+    background: #0f2a1c;
+    color: #00ff88;
+  }
+  
+  
+  
+  
+  
+  
